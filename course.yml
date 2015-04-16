@@ -1,0 +1,13 @@
+id: 677
+title: R语言简易教程
+author_field: Eric Xiong
+time_needed: 2.5 hours
+description: 这是上海科技大学《生物统计课程》的R语言简易教程，以在线交互的方式带领没有编程基础的同学迅速入门。如需更多高阶课程，请关注[上科大官网](http://www.shanghaitech.edu.cn)。
+chapters:
+- chapter1.Rmd: 1586
+- chapter2.Rmd: 1588
+- chapter3.Rmd: 1589
+- chapter4.Rmd: 1590
+- chapter5.Rmd: 1591
+- chapter6.Rmd: 1592
+

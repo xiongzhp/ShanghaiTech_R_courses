@@ -1,0 +1,369 @@
+--- 
+title_meta  : 第一节
+title       : 快速上手
+description : 在这一小节，你将开启你的R语言之旅。你会学到怎么用R语言的命令窗口作简单的数学计算，怎么给变量赋值。你也将了解到R语言的基本数据类型。Now, get started!
+---
+
+## 在线交互须知
+
+在右边的编辑器中按要求输入R语句，当你点击'Submit Answer'，每一行的代码都将被编译执行，后台会反馈你写得代码是否符合要求。右下部的R语言命令窗口会输出运行结果。
+
+R语言用`#`作为注释符号， `#`后面的语句不被编译执行。
+
+你也可以直接在右下部的R语言命令窗口中执行语句，在提交答案之前检验你的输入的答案正确与否。
+
+*** =instructions
+- 编辑器中已经有一些R语言的例子，你能分辨哪些是语句，那些是注释吧？
+- 加一条语句计算6与12的和，点击'Submit Answer'。
+
+*** =hint
+这都要看提示！按样例中的写就好，别傻X了。
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# 计算 3 + 4
+3 + 4
+
+# 计算 6 + 12
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# 计算 3 + 4
+3 + 4
+
+# 计算 6 + 12
+6 + 12
+```
+
+*** =sct
+```{r eval=FALSE}
+test_output_contains("7", incorrect_msg = "不要把示例代码删除，再下面添加代码就好")
+test_output_contains("18", incorrect_msg = "你确定你计算的是6+12吗？不要把代码写在 <code>#</code>同一行后面, 要换行！")
+success_msg("Awesome! 看到命令窗口输出了计算结果了吧？let's get down to R business!")
+```
+
+---
+
+## 简单代数计算
+
+尝试接下来的计算
+
+- 加法: `+`
+- 减法: `-`
+- 乘法: `*`
+- 除法: `/`
+- 指数: `^`
+- 求余: `%%`
+
+最后两个稍微解释一下：
+- `^`（键盘数字6上面）是求一个数的指数，比如：`3^2`是求3的二次方，等于9.
+- `%%`是求除法的余数，比如`5 %% 3`，余数为2.
+
+*** =instructions
+- 在右边编辑器中输入`2^5`计算2的5次方。
+- 输入`28 %% 6`计算28除以6的余数。
+- 点击'Submit Answer'。
+
+*** =hint
+你上点心吧，这都看提示？
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# 加法
+5 + 5 
+
+# 减法
+5 - 5 
+
+# 乘法
+3 * 5
+
+ # 除法
+(5 + 5)/2 
+
+# 指数
+
+
+# 求余
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# 加法
+5 + 5
+
+# 减法
+5 - 5 
+
+# 乘法
+3 * 5
+
+ # 除法
+(5 + 5)/2 
+
+# 指数
+2^5
+
+# 求余
+28 %% 6
+```
+
+*** =sct
+```{r eval=FALSE}
+msg = "不要把示例代码删除!"
+test_output_contains("5 + 5", incorrect_msg = msg)
+test_output_contains("5 - 5", incorrect_msg = msg)
+test_output_contains("(5 + 5)/2", incorrect_msg = msg)
+test_output_contains("2^5", incorrect_msg = "不对哦，再看一遍instructions。")
+test_output_contains("28 %% 6", incorrect_msg = "不对哦，再看一遍instructions。")
+success_msg("Great! Head over to the next exercise.")
+```
+
+---
+
+## 给变量赋值
+
+程序里有一个重要的基本概念是**变量**。
+
+变量能让你存储一个值或者一个函数。然后你能直接用这个变量代表那个值或函数来执行。
+
+你可以把“2013”赋给变量`shanghaitech`。
+
+```
+shanghaitech <- 2013
+```
+
+*** =instructions
+在编辑窗口将命令行补全，以实现将4赋给变量`x`。点提交，你会看到42被命令行窗口输出。
+
+*** =hint
+还没到提示的时候，hold住！
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# 把42赋给变量 'x'（补全接下来这一句就好）
+x <- 
+
+# 输出变量 'x'（下一句就这样了，点提交）
+x
+```
+
+*** =solution
+```{r eval=FALSE}
+# 把42赋给变量 'x'（补全接下来这一句就好）
+x <- 42
+
+# 输出变量 'x'（下一句就这样了，点提交）
+x
+```
+
+*** =sct
+```{r eval=FALSE}
+test_object("x", undefined_msg = "你确定你定义好了变量 <code>x</code>？",
+            incorrect_msg = "你确定你是把42赋给了<code>x</code>？") 
+success_msg("Good job! 看到命令行窗口输出结果了吧？ <code>x <- 42</code> 不会马上把结果输出，而要等到你调用这个变量x才输出。Proceed to the next exercise!")
+```
+
+---
+
+
+## 给变量赋值（续）
+
+你平均每天上8个小时的课，还要做3个小时的作业，再加上5个小时的实验，总担心自己哪天因过劳而暴毙，你可以用R语言抽象出你每天的工作时间: 
+```
+lecture + homework + lab
+```
+
+*** =instructions
+- 把3赋给变量`homework`，把5赋给变量`lab`。
+- 建立一个新的变量`guolaosi`，记录导致你过劳死的工作时间。
+
+*** =hint
+用`+`把三个变量加起来，用`<-`把相加后的值赋给`guolaosi`。
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# 分别给变量'lecture', 'homework'和'lab'赋值
+lecture <- 8
+
+
+
+# 建立一个新的变量'guolaosi'，记录你过劳死的工作时间
+
+
+# 输出变量'guolaosi'
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# 分别给变量'lecture', 'homework'和'lab'赋值
+lecture <- 8
+homework <- 3
+lab <- 5
+
+# 建立一个新的变量'guolaosi'，记录你过劳死的工作时间
+guolaosi <- lecture + homework + lab
+
+# 输出变量'guolaosi'
+guolaosi
+```
+
+*** =sct
+```{r eval=FALSE}
+
+test_object("homework", 
+            undefined_msg = "你确定你已经正确定义了<code>homework</code>？",
+            incorrect_msg = "你赋了正确的值给变量<code>homework</code>了吗？")
+test_object("lab", 
+            undefined_msg = "你确定你已经正确定义了<code>lab</code>？",
+            incorrect_msg = "你赋了正确的值给变量<code>lab</code>了吗？")
+test_object("guolaosi",
+            undefined_msg = "你没有正确定义guolaosi。",
+            incorrect_msg = "你没有正确定义guolaosi。")
+test_output_contains("guolaosi", 
+                     incorrect_msg = "你没有输出变量<code>guolaosi</code>")
+success_msg("Nice one! 用变量来计算的好处是你能动态地把不同的值赋给变量（你用软件调参数就是在动态给软件里的参数赋值）。")
+```
+
+---
+
+## R语言里的数据类型
+
+R有很多数据类型，这里介绍几种常见的：
+
+- 数字，比如`4.5`，的数据类型是**numeric**。
+- 布尔型(`TRUE` or `FALSE`)的数据类型是**logical** (`TRUE`简写为`T`，`FALSE`简写为`F`).
+- 文本型(或字符串型)的数据类型是**character**.
+
+需要注意的是用文本型数据需要用双引号引起来。
+
+*** =instructions
+请按如下要求改变各个变量的值：
+- 给变量`my_numeric`赋值`42`.
+- 给`my_character`赋值`"forty-two"`，注意，双引号说明`"forty-two"`是一个文本型数据.
+- 给`my_logical`赋值`FALSE`.
+
+需要注意，R语言区分大小写。
+
+*** =hint 
+替换已有的值就好，别告诉我这你都不会！
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+my_numeric <- 42.5
+
+my_character <- "some text"
+
+my_logical <- TRUE
+```
+
+*** =solution
+```{r eval=FALSE}
+my_numeric <- 42
+
+my_character <- "forty-two"
+
+my_logical <- FALSE
+```
+
+*** =sct
+```{r eval=FALSE}
+test_object("my_numeric", 
+            undefined_msg = "Please make sure to define a variable <code>my_numeric</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_numeric.</code>")
+test_object("my_character",
+            undefined_msg = "Please make sure to define a variable <code>my_character</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_character</code>. Do not forget the quotes.")
+test_object("my_logical",
+            undefined_msg = "Please make sure to define a variable <code>my_logical</code>.",
+            incorrect_msg = "Make sure that you assign the correct value to <code>my_logical</code>.") 
+success_msg("Great work! Continue to the next exercise.")
+```
+
+---
+
+## 检查数据类型
+
+你可以在命令行窗口输入`5 + "six"`，你会得到一个因数据类型不匹配的报错。你可以先检查一个变量的数据类型来避免这种错误（你现在会觉得数据类型很好区分，但变量一旦多起来，并且经过各种运算转换后，你将无法直观看出数据类型）:
+
+```
+class(some_variable_name)
+```
+
+*** =instructions
+补全编辑器中的代码，并输出`my_numeric`, `my_character`和`my_logical`。 
+
+*** =hint
+可以用`class(my_numeric)`检测出变量`my_numeric`的数据类型。`my_character`和`my_logical`的类似。
+
+*** =pre_exercise_code
+```{r eval=FALSE}
+# no pec
+```
+
+*** =sample_code
+```{r eval=FALSE}
+# 定义不同的变量
+my_numeric <- 42
+my_character <- "forty-two"
+my_logical <- FALSE 
+
+# 检查这些变量的类型：
+
+```
+
+*** =solution
+```{r eval=FALSE}
+# 定义不同的变量
+my_numeric <- 42
+my_character <- "forty-two"
+my_logical <- FALSE
+
+# 检查这些变量的类型：
+class(my_numeric)
+class(my_character)
+class(my_logical)
+```
+
+*** =sct
+```{r eval=FALSE}
+test_object("my_numeric")
+test_object("my_character")
+test_object("my_logical")
+test_output_contains("class(my_numeric)",
+                     incorrect_msg = "The output does not contain the class of <code>my_numeric</code>. Try again.")
+test_output_contains("class(my_character)",
+                     incorrect_msg = "The output does not contain the class of <code>my_character</code>. Give it another try.")
+test_output_contains("class(my_logical)",
+                     incorrect_msg = "The output does not contain the class of <code>my_logical</code>.")
+success_msg("Congratulations! 这是第一节最后一个练习，你已经入门了哦！下一节介绍如何构建向量，敬请关注。")
+```
