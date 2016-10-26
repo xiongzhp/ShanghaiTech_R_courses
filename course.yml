@@ -5,7 +5,7 @@ instructors:
 time_needed: 2.5 hours
 difficulty_level: 1
 description: This is an online interacive tutorial for R programming that will make you master the basics of this beautiful open source
-             language. It's designed for the graduate biostatistics course from Shanghaitech University. 
+             language. It's designed for the graduate biostatistics course from Shanghaitech University. (It's in Chinese)
              这是上海科技大学《生物统计课程》的R语言简易教程，以在线交互的方式带领没有编程基础的同学迅速入门。如需更多高阶课程，请关注[上科大官网](http://www.shanghaitech.edu.cn)。
 chapters:
  chapter1.Rmd: 1586
